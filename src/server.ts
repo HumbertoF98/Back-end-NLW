@@ -2,15 +2,13 @@ import express from 'express';
 
 const app = express();
 
-app.get('/users', (request, response) => {
-  const users = [
-    { name: "Diego", age: "25" },
-    { name: "Diego", age: "25" },
-    { name: "Diego", age: "25" },
-  ];
+app.use(express.json());
 
-  return response.json(users);
-  console.log('Acessou a rota');
+//Route Params: qual recurso deletar ou modificar ex: users/:id
+//Query Params: Paginação, filtros, ordenação ex: users?page=1
+
+app.get('/', (request, response) => {
+  return response.json({ message: "Hello World" });
 });
 
 app.listen(3333);
